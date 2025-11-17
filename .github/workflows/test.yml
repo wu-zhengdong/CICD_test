@@ -1,21 +1,9 @@
-name: Build
-
 on: push
 
 jobs:
-  build:
+  npm-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Install deps
-        run: npm install
-
-      - name: Build
-        run: npm run build
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npm run build
